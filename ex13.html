@@ -10,7 +10,7 @@
     <script>
     var temperatura = [] 
     var maior = 0
-    var menor = 0
+    var menor 
     var media = 0
     var a = 0
     var quantidade = 0
@@ -21,7 +21,7 @@
         if (temperatura[a] > maior){
             maior = temperatura[a]
         }
-        if (temperatura[a] < menor){
+        else if (temperatura[a] < menor){
             menor = temperatura[a]
         }
         media = media + temperatura[a]
@@ -34,9 +34,9 @@
             quantidade = quantidade + 1
         }
     }
-    alert('Menor temperatura do ano: ' + menor)
-    alert('Maior temperatura do ano: ' + maior)
-    alert('Temperatura média ano: '+ media)
+    alert('Menor temperatura da semana: ' + Math.min(...temperatura))
+    alert('Maior temperatura do semana: ' + Math.max(...temperatura))
+    alert('Temperatura média semana: '+ media)
     </script>
 </body>
 </html>
