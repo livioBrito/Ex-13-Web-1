@@ -8,31 +8,35 @@
 </head>
 <body>
     <script>
-        var nomes = []
-        var notas = []
-        var media = 0
-        var interrompe = ''
-        var iterador = 0
-
-        while (interrompe !== 'Fim'){
-
-            iterador = Number(iterador + 1)
-
-            for (var i = 0; i < iterador; i++){
-                nomes[i] = prompt('Digite o nome do aluno: ')
-                notas[i] = Number(prompt('Digite a nota: '))
+        var turma=[]
+        var notas=[]
+        var destaques=[] 
+        var maiornota
+        var iterador = 0;
+        
+		do{
+            nome=(prompt("Nome do aluno: "));
+           
+            if(nome != "Fim"){
+                turma.push(nome)
+                notas.push(Number(prompt("Nota: ")));
             }
+			
+		}while(nome != "Fim")
 
-            if (Math.max(...notas) >= 7){
-                for(var i = 0; i < iterador; i++){
-                    if (notas[i] >= 7){
-                        document.writeln( "Aluno: " + nomes[i] + " " + notas[i] + "||")
-                    }
+        maiornota = Math.max(...notas)
+        
+        document.write(`Maior nota da Turma: ${maiornota} `);
+
+        if(maiornota>=7){
+            for (i = 0; i < notas.length; i++){
+                if (notas[i] == maiornota){
+                    destaques.push(turma[i])
                 }
-            } else if(Math.max(...notas) < 7){
-                prompt('Não há alunos em destaque na turma')
             }
-            interrompe = prompt('Digite "Fim" para sair')
+            document.write(`</br> Aluno(s) destaque(s): ${destaques}`)
+        } else{ 
+            document.write(`</br> Não há alunos em destaque na turma!`)
         }
     </script>
 </body>
